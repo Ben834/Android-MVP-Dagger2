@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.0"
+
+    defaultConfig {
+        applicationId "com.ben.sample.architectureexample"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.0.0'
+
+    //Dagger
+    compile 'com.google.dagger:dagger:2.0.1'
+    apt 'com.google.dagger:dagger-compiler:2.0'
+
+    //Testing
+    testCompile "junit:junit:4.10"
+    testCompile "org.assertj:assertj-core:1.7.0"
+    testCompile "org.robolectric:robolectric:3.0-rc2"
+
+    //Other
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+}
+
+
